@@ -16,7 +16,7 @@ export default function App() {
     <View style={[styles.contenedorPrincipal, {backgroundColor: tema.COLOR_FONDO}]}>
       <ScrollView>
         <Image
-          source={require("./assets/granada_dark.jpg")}
+          source={require(tema.logo)}
           style={{
             width: '100%',
             height: 250,
