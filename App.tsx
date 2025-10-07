@@ -42,7 +42,23 @@ export default function App() {
         <ImageBackground source={require('./assets/mejores3.jpg')} style={styles.fotoRuta}>
         <Text style = {[styles.textoFoto, {color: COLOR_TEXTO_FOTO}]}>El centro</Text> </ImageBackground>
         
+        <Text style={[styles.titulo, {color: COLOR_TITULO}]}>
+            Los mejores alojamientos</Text>
       </View>
+      <View style={styles.contenedorFotosAlojamiento}>
+            <View style={styles.contenedorAlojamiento}>
+              <Image source={require('./assets/alojamiento1.jpg')} style={styles.fotoAlojamiento} />
+            </View>
+            <View style={styles.contenedorAlojamiento}>
+              <Image source={require('./assets/alojamiento2.jpg')} style={styles.fotoAlojamiento} />
+            </View>
+            <View style={styles.contenedorAlojamiento}>
+              <Image source={require('./assets/alojamiento3.jpg')} style={styles.fotoAlojamiento} />
+            </View>
+            <View style={styles.contenedorAlojamiento}>
+              <Image source={require('./assets/alojamiento4.jpg')} style={styles.fotoAlojamiento} />
+            </View>
+          </View>
       </ScrollView>
     </View>
   )
@@ -90,5 +106,20 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
-  }
+  },
+  contenedorFotosAlojamiento: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    marginBottom: 15,
+  },
+  contenedorAlojamiento: {
+    width: "49%",
+    aspectRatio: 1,
+    marginBottom: 5,
+  },
+  fotoAlojamiento: {
+    width: "100%",
+    height: "100%",
+  },
 })
