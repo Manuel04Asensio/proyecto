@@ -1,13 +1,17 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { ScrollView } from 'react-native'
-import { Image } from 'expo-image'
+import { useFonts } from 'expo-font';
+import { Image, ImageBackground } from 'expo-image'
 
 
 export default function App() {
   const COLOR_FONDO="#121212"
   const COLOR_TITULO="#ffdd99"
   const COLOR_TEXTO_FOTO="#ffffff"
+  const fuenteTexto = useFonts({
+    'Bebas': require('./assets/BebasNeue-Regular.ttf')
+  })
   return (
     <View style={[styles.contenedorPrincipal, {backgroundColor: COLOR_FONDO}]}>
       <ScrollView>
@@ -22,13 +26,22 @@ export default function App() {
       <View style={styles.contenedorSecundario}>
           <Text style={[styles.titulo, {color: COLOR_TITULO}]}>
             ¿Que hacer en Granada?</Text>
-          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <ScrollView horizontal={true}>
           <Image source={require('./assets/actividad1.jpg')} style={styles.fotoCarrusel} />
           <Image source={require('./assets/actividad2.jpg')} style={styles.fotoCarrusel} />
           <Image source={require('./assets/actividad3.jpg')} style={styles.fotoCarrusel} />
           <Image source={require('./assets/actividad4.jpg')} style={styles.fotoCarrusel} />
           <Image source={require('./assets/actividad5.jpg')} style={styles.fotoCarrusel} />
         </ScrollView>
+        <Text style ={[styles.titulo, {color: COLOR_TITULO}]}>
+          Las mejores rutas</Text>
+        <ImageBackground source={require('./assets/mejores1.jpg')} style={styles.fotoRuta}>
+        <Text style = {[styles.textoFoto, {color: COLOR_TEXTO_FOTO}]}>Albaicín</Text> </ImageBackground>
+        <ImageBackground source={require('./assets/mejores2.jpg')} style={styles.fotoRuta}>
+        <Text style = {[styles.textoFoto, {color: COLOR_TEXTO_FOTO}]}>Sacromonte</Text> </ImageBackground>
+        <ImageBackground source={require('./assets/mejores3.jpg')} style={styles.fotoRuta}>
+        <Text style = {[styles.textoFoto, {color: COLOR_TEXTO_FOTO}]}>El centro</Text> </ImageBackground>
+        
       </View>
       </ScrollView>
     </View>
@@ -58,5 +71,24 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignSelf: 'center',
     marginBottom: 15,
+  },
+  fotoRuta: {
+    width: '100%',
+    height: 200,
+    margin: 5,
+    justifyContent: "center"
+  },
+  textoFoto: {
+    textAlign: 'center',
+    fontFamily: 'Bebas',
+    fontSize: 48,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   }
 })
