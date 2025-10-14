@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import FotoRuta from './FotoRuta'
+import { Tema } from '../themes/Temas';
 
 interface MejoresRutasProps {
-    tema: {
-        COLOR_TEXTO_FOTO: string;
-    }
+    tema: Tema;
 }
 
 export default function MejoresRutas({tema}: MejoresRutasProps)  {
@@ -29,5 +28,6 @@ export default function MejoresRutas({tema}: MejoresRutasProps)  {
     </>
   )
 }
+
 
 const styles = StyleSheet.create({})

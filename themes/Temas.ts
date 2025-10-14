@@ -1,3 +1,11 @@
+import { ImageSourcePropType } from 'react-native';
+
+export type Tema ={
+    COLOR_FONDO: string;
+    COLOR_TITULO: string;
+    COLOR_TEXTO_FOTO: string;
+    logo: ImageSourcePropType;
+}
 const TEMA_OSCURO = {
     COLOR_FONDO: '#121212',
     COLOR_TITULO: '#ffdd99',
@@ -11,5 +19,4 @@ const TEMA_CLARO = {
     COLOR_TEXTO_FOTO: '#FFFFFF',
     logo: require("../assets/granada_light.jpg"),
 }
-export {TEMA_OSCURO}
-export {TEMA_CLARO}
+export {TEMA_OSCURO, TEMA_CLARO}

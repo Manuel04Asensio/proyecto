@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Image, ImageBackground } from 'expo-image'
+import { ImageSourcePropType } from 'react-native'
+import { Tema } from '../themes/Temas';
 
 interface FotoRuta {
     texto: string;
@@ -11,13 +13,19 @@ interface FotoRuta {
 
 }
 
-export default function FotoRuta({texto, imagen, tema}: FotoRuta)  {
+interface FotoRutaProps {
+    texto: string;
+    imagen: ImageSourcePropType;
+    tema: Tema;
+}
+
+export default function FotoRuta({texto, imagen, tema}: FotoRutaProps)  {
   return (
-    <View>
-        <ImageBackground source={imagen} style={styles.fotoRuta}>
-            <Text style={[styles.textoFoto, {color: tema.COLOR_TEXTO_FOTO}]}>{texto}</Text> 
-        </ImageBackground>
-    </View>
+    <ImageBackground source={imagen} style={styles.fotoRuta}>
+      <Text style={[styles.textoFoto, {color: tema.COLOR_TEXTO_FOTO}]}>
+        {texto}
+      </Text> 
+    </ImageBackground>
   )
 }
 
