@@ -4,6 +4,12 @@ import { ScrollView } from 'react-native'
 import { useFonts } from 'expo-font';
 import { Image, ImageBackground } from 'expo-image'
 import { TEMA_OSCURO, TEMA_CLARO } from './themes/Temas';
+import Titulo from './components/Titulo';
+import Carrusel from './components/Carrusel';
+import FotoRuta from './components/FotoRuta';
+import MejoresRutas from './components/MejoresRutas';
+import Alojamiento from './components/Alojamiento';
+import MejoresAlojamientos from './components/MejoresAlojamientos';
 
 export default function App() {
   const temaActivo = useColorScheme();
@@ -24,40 +30,15 @@ export default function App() {
           }}
         />
       <View style={styles.contenedorSecundario}>
-          <Text style={[styles.titulo, {color: tema.COLOR_TITULO}]}>
-            ¿Que hacer en Granada?</Text>
-          <ScrollView horizontal={true}>
-          <Image source={require('./assets/actividad1.jpg')} style={styles.fotoCarrusel} />
-          <Image source={require('./assets/actividad2.jpg')} style={styles.fotoCarrusel} />
-          <Image source={require('./assets/actividad3.jpg')} style={styles.fotoCarrusel} />
-          <Image source={require('./assets/actividad4.jpg')} style={styles.fotoCarrusel} />
-          <Image source={require('./assets/actividad5.jpg')} style={styles.fotoCarrusel} />
-        </ScrollView>
-        <Text style ={[styles.titulo, {color: tema.COLOR_TITULO}]}>
-          Las mejores rutas</Text>
-        <ImageBackground source={require('./assets/mejores1.jpg')} style={styles.fotoRuta}>
-        <Text style = {[styles.textoFoto, {color: tema.COLOR_TEXTO_FOTO}]}>Albaicín</Text> </ImageBackground>
-        <ImageBackground source={require('./assets/mejores2.jpg')} style={styles.fotoRuta}>
-        <Text style = {[styles.textoFoto, {color: tema.COLOR_TEXTO_FOTO}]}>Sacromonte</Text> </ImageBackground>
-        <ImageBackground source={require('./assets/mejores3.jpg')} style={styles.fotoRuta}>
-        <Text style = {[styles.textoFoto, {color: tema.COLOR_TEXTO_FOTO}]}>El centro</Text> </ImageBackground>
+          <Titulo texto='¿Que hacer en Granada?' tema={tema}></Titulo>
+          <Carrusel></Carrusel>
+        <Titulo texto='Las mejores rutas' tema={tema}></Titulo>
+        <MejoresRutas tema={tema}></MejoresRutas>
         
-        <Text style={[styles.titulo, {color: tema.COLOR_TITULO}]}>
-            Los mejores alojamientos</Text>
+        <Titulo texto='Los mejores alojamientos' tema={tema}></Titulo>
       </View>
       <View style={styles.contenedorFotosAlojamiento}>
-            <View style={styles.contenedorAlojamiento}>
-              <Image source={require('./assets/alojamiento1.jpg')} style={styles.fotoAlojamiento} />
-            </View>
-            <View style={styles.contenedorAlojamiento}>
-              <Image source={require('./assets/alojamiento2.jpg')} style={styles.fotoAlojamiento} />
-            </View>
-            <View style={styles.contenedorAlojamiento}>
-              <Image source={require('./assets/alojamiento3.jpg')} style={styles.fotoAlojamiento} />
-            </View>
-            <View style={styles.contenedorAlojamiento}>
-              <Image source={require('./assets/alojamiento4.jpg')} style={styles.fotoAlojamiento} />
-            </View>
+            <MejoresAlojamientos></MejoresAlojamientos>
           </View>
       </ScrollView>
     </View>
