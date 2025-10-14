@@ -10,6 +10,7 @@ import FotoRuta from './components/FotoRuta';
 import MejoresRutas from './components/MejoresRutas';
 import Alojamiento from './components/Alojamiento';
 import MejoresAlojamientos from './components/MejoresAlojamientos';
+import { Ruta } from './models/Tipos';
 
 export default function App() {
   const temaActivo = useColorScheme();
@@ -18,6 +19,41 @@ export default function App() {
   const fuenteTexto = useFonts({
     'Bebas': require('./assets/BebasNeue-Regular.ttf')
   })
+
+   const rutas = [
+    {
+      nombre: "Albaicín",
+      imagen: require("./assets/mejores1.jpg")
+    },
+    {
+      nombre: "Sacromonte", 
+      imagen: require("./assets/mejores2.jpg")
+    },
+    {
+      nombre: "El Centro",
+      imagen: require("./assets/mejores3.jpg")
+    },
+    {
+      nombre: "Alhambra",
+      imagen: require("./assets/mejores4.jpg")
+    }
+  ];
+
+  const alojamientos = [
+    {
+      imagen: require("./assets/alojamiento1.jpg")
+    },
+    {
+      imagen: require("./assets/alojamiento2.jpg")
+    },
+    {
+      imagen: require("./assets/alojamiento3.jpg")
+    },
+    {
+      imagen: require("./assets/alojamiento4.jpg")
+    }
+  ];
+
   return (
     <View style={[styles.contenedorPrincipal, {backgroundColor: tema.COLOR_FONDO}]}>
       <ScrollView>
@@ -33,12 +69,12 @@ export default function App() {
           <Titulo texto='¿Que hacer en Granada?' tema={tema}></Titulo>
           <Carrusel></Carrusel>
         <Titulo texto='Las mejores rutas' tema={tema}></Titulo>
-        <MejoresRutas tema={tema}></MejoresRutas>
+        <MejoresRutas tema={tema} listaRutas={rutas}></MejoresRutas>
         
         <Titulo texto='Los mejores alojamientos' tema={tema}></Titulo>
       </View>
       <View style={styles.contenedorFotosAlojamiento}>
-            <MejoresAlojamientos></MejoresAlojamientos>
+            <MejoresAlojamientos listaAlojamientos={alojamientos}></MejoresAlojamientos>
           </View>
       </ScrollView>
     </View>

@@ -1,14 +1,21 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Alojamiento from './Alojamiento'
+import { Alojamiento } from '../models/Tipos';
+import FotoAlojamiento from './Alojamiento';
 
-export default function MejoresAlojamientos()  {
+interface MejoresAlojamientosProps {
+  listaAlojamientos: Array<Alojamiento>;
+}
+
+export default function MejoresAlojamientos({ listaAlojamientos }: MejoresAlojamientosProps) {
   return (
     <View style={styles.contenedorFotosAlojamiento}>
-      <Alojamiento imagen={require("../assets/alojamiento1.jpg")} />
-      <Alojamiento imagen={require("../assets/alojamiento2.jpg")} />
-      <Alojamiento imagen={require("../assets/alojamiento3.jpg")} />
-      <Alojamiento imagen={require("../assets/alojamiento4.jpg")} />
+      {listaAlojamientos.map((alojamiento, index) => (
+        <FotoAlojamiento 
+          key={index}
+          alojamiento={alojamiento} 
+        />
+      ))}
     </View>
   )
 }

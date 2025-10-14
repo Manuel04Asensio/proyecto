@@ -2,29 +2,24 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import FotoRuta from './FotoRuta'
 import { Tema } from '../themes/Temas';
+import { Ruta } from '../models/Tipos';
 
 interface MejoresRutasProps {
     tema: Tema;
+    listaRutas: Array<Ruta>;
 }
 
-export default function MejoresRutas({tema}: MejoresRutasProps)  {
+export default function MejoresRutas({tema, listaRutas}: MejoresRutasProps)  {
   return (
     <>
-      <FotoRuta 
-        texto="Albaicín" 
-        imagen={require("../assets/mejores1.jpg")} 
-        tema={tema} 
-      />
-      <FotoRuta 
-        texto="Sacromonte" 
-        imagen={require("../assets/mejores2.jpg")} 
-        tema={tema} 
-      />
-      <FotoRuta 
-        texto="El centro" 
-        imagen={require("../assets/mejores3.jpg")} 
-        tema={tema} 
-      />
+      {listaRutas.map((ruta, index) => (
+        <FotoRuta 
+          key={index}
+          texto={ruta.nombre}
+          imagen={ruta.imagen}
+          tema={tema}
+        />
+      ))}
     </>
   )
 }

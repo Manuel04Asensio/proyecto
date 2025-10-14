@@ -6,10 +6,14 @@ interface Alojamiento {
     imagen: any;
 }
 
-export default function Alojamiento({imagen}: Alojamiento)  {
+interface AlojamientoProps {
+  alojamiento: Alojamiento;
+}
+
+export default function FotoAlojamiento({ alojamiento }: AlojamientoProps) {
   return (
     <View style={styles.contenedorAlojamiento}>
-      <Image source={imagen} style={styles.fotoAlojamiento} />
+      <Image source={alojamiento.imagen} style={styles.fotoAlojamiento} />
     </View>
   )
 }
